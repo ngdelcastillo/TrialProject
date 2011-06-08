@@ -1,0 +1,421 @@
+﻿@model Navitaire.Reporting.Web.Models.CatalogModel
+@{
+    ViewBag.Title = "Content";    
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+    string today = DateTime.Today.ToShortDateString();    
+}
+
+<h2>Catalog</h2>
+@if (Model.Error != null)
+{
+    <fieldset>
+        <legend>Error</legend>
+        <div class="error">
+            <p>@Model.Error.Message</p>
+            <ul></ul>
+            <p>@Model.Error.InnerException</p>
+        </div>
+    </fieldset>
+}
+<table>
+<tr>
+<td class="tree">
+<div class="tree">    
+    @Html.Partial("_Tree")
+</div>
+</td>
+<td class="content">
+@if (Model.ItemType != null)
+{
+<div class="content">      
+@using (Html.BeginForm())
+{
+    <h3>@Model.Name</h3>
+    @Html.ValidationSummary(true);
+    if (Model.ItemType.Equals("Report", StringComparison.OrdinalIgnoreCase) || Model.ItemType.Equals("LinkedReport", StringComparison.OrdinalIgnoreCase))
+    {   
+        <span>
+            @Model.ReportParameters["ProcVersion"].Prompt: 
+            @if (@Model.ReportParameters["ProcVersion"].ValidValues.Count > 0)
+            {
+                @Model.ReportParameters["ProcVersion"].ValidValues[0].Value
+            }
+        </span>
+        <fieldset>
+        <div class="dialog-confirm" title="Delete item?" style="display:none">
+	        <p class="confirmMessage"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p>
+        </div>
+        <div class="functions">                    	                    
+            <button class="function" value="Run" type="submit" name="commit">
+                <div class="run"></div>			    
+	            <p>Run Report</p>
+            </button>
+            <button class="function" value="Export" type="submit" name="commit">
+	            <div class="export"></div>
+                <p>Export Report</p>
+            </button>
+            <button class="function" value="Diagnose" type="submit" name="commit">
+	            <div class="diagnose"> </div>
+	            <p>Diagnose Report</p>
+            </button>
+            <button class="function" value="Info" type="submit" name="commit">
+	            <div class="info"> </div>
+	            <p>Info</p>
+            </button>
+            <button class="deleteButton" type="button" title="@Model.Name" onclick="deleteConfirm()">
+                <div class="delete"> </div>
+	            <p>Delete</p>
+            </button>            
+            <button class="hiddenDelete" value="Delete" type="submit" name="commit" style="display:none" />                                  
+        </div>
+        </fieldset>
+        <fieldset>        
+        <div class="parameters">        
+            @if (Model.ReportParameters != null)
+            {
+                foreach (var item in Model.ReportParameters)
+                {
+                    if (!item.Name.Equals("ProcVersion", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <div class="parameter">
+                        <label>@item.Prompt :</label><br />
+                        @if (item.ValidValues.Count > 1)
+                        {
+                            <select class="dropdown" name="@item.Name">
+                                @foreach (var value in item.ValidValues)
+                                {
+                                    if (!item.SelectedValue.IsEmpty())
+                                    {
+                                        if (item.SelectedValue.Equals(value.Value, StringComparison.OrdinalIgnoreCase))
+                                        {
+                                            <option value="@value.Value" selected="selected">@value.Label</option>
+                                                                                        continue;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (item.DefaultValues.Count > 0)
+                                        {
+                                            foreach (var def in item.DefaultValues)
+                                            {
+                                                if (!def.IsEmpty())
+                                                {
+                                                    if (def.Equals(value.Value, StringComparison.OrdinalIgnoreCase))
+                                                    {
+                                                        <option value="@value.Value" selected="selected">@value.Label</option>
+                                                                                                    continue;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        <option value="@value.Value">@value.Label</option>
+                                    }
+                                }
+                            </select>                                                
+                        }
+
+                        else if (!item.SelectedValue.IsEmpty())
+                        {
+                            switch (item.ParameterType.ToString())
+                            {
+                                case "DateTime":
+                                <input class="datepicker" type="text" size="20" name="@item.Name" value="@item.SelectedValue" />
+                                                                                                    break;
+
+                                default:                                                   
+                                <input class="procversion" type="text" size="20" name="@item.Name" value="@item.SelectedValue" />
+                                                                                                     break;
+                            }
+                        }
+
+                        else if (item.DefaultValues.Count > 0)
+                        {
+                            switch (item.ParameterType.ToString())
+                            {
+                                case "DateTime":
+                                <input class="datepicker" type="text" size="20" name="@item.Name" value="@item.DefaultValues[0]" />
+                                                                                                    break;
+
+                                default:                                                   
+                                <input class="procversion" type="text" size="20" name="@item.Name" value="@item.DefaultValues[0]" />
+                                                                                                     break;
+                            }
+                        }
+                        else
+                        {
+                            switch (item.ParameterType.ToString())
+                            {
+                                case "DateTime":
+                                <input class="datepicker" type="text" size="20" name="@item.Name" value="@today" />
+                                                                                                    break;
+
+                                default:                                                   
+                                <input class="text" type="text" size="20" name="@item.Name" />
+                                                                           break;
+                            }
+                        }
+                        </div>
+                    }
+                }
+            }
+        </div>
+        </fieldset>
+        
+            switch (Model.PostMethod)
+            {
+                case "Run":
+                    if (!Model.Result.IsEmpty())
+                    {
+                <fieldset>                
+                    <div class="report">
+                        <iframe id="report" src="@Model.Result"></iframe>
+                    </div>                              
+                </fieldset>
+                    }
+                    break;
+
+                case "Info":
+                    if (!(Model.ItemProperties.Count == 0))
+                    {
+                <fieldset>
+                    <div class="report">
+                    <table class="info">
+                        @foreach (var property in Model.ItemProperties.AllKeys)
+                        {
+                            <tr>
+                                <td>@property:</td>
+                                <td>@Model.ItemProperties[property]</td>
+                            </tr>
+                        }
+                    </table>
+                    </div>                    
+                </fieldset>
+                    }
+                    break;
+            }
+        }
+
+        else if (Model.ItemType.Equals("DataSource", StringComparison.OrdinalIgnoreCase))
+        {
+        <fieldset>
+        <div class="dialog-confirm" title="Delete item?" style="display:none">
+	        <p class="confirmMessage"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p>
+        </div>
+        <div class="functions"> 
+            <button class="function" value="Info" type="submit" name="commit">
+	            <div class="info"> </div>
+	            <p>Info</p>
+            </button>
+            <button class="function" value="Edit" type="submit" name="commit">
+	            <div class="edit"></div>
+	            <p>Edit</p>
+            </button>
+            <button class="deleteButton" type="button" title="@Model.Name" onclick="deleteConfirm()">
+                <div class="delete"></div>
+	            <p>Delete</p>
+            </button>
+            <button class="hiddenDelete" value="Delete" type="submit" name="commit" style="display:none" />
+        </div>
+        </fieldset>
+            
+ 
+        switch (Model.PostMethod)
+        {
+            case "Info":
+                if (!(Model.ItemProperties.Count == 0))
+                {
+                <fieldset>                    
+                    <table class="info">
+                        @foreach (var property in Model.ItemProperties.AllKeys)
+                        {
+                            <tr>
+                                <td>@property:</td>
+                                <td>@Model.ItemProperties[property]</td>
+                            </tr>
+                        }
+                    </table>                                        
+                </fieldset>
+                }
+                break;
+
+            default:
+                <fieldset>
+                    <table>
+                        @foreach (var property in Model.DataSourceItem.itemProperties)
+                        {
+                            <tr>
+                                <td><label>@property.Label</label></td>
+                                <td>
+                                    @if ((property.PropertyName.Equals("Password", StringComparison.OrdinalIgnoreCase)) || (property.PropertyName.Equals("ConfirmPassword", StringComparison.OrdinalIgnoreCase)))
+                                    {
+                                        <input type="password" value="@property.Value" name="@property.PropertyName" style="width:300px;" />
+                                    }
+                                    else
+                                    {
+                                        <input type="text" value="@property.Value" name="@property.PropertyName" style="width:300px;" />
+                                    }
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td><button type="submit" value="Save Data Source" name="commit" class="button-saveDatasource">Save</button></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            break;
+        }
+        }
+
+        else
+        {
+        <fieldset>
+        <div class="dialog-confirm" title="Delete item?" style="display:none">
+	        <p class="confirmMessage"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p>
+        </div>
+        <div class="functions"> 
+            <button class="function" value="Add Items" type="submit" name="commit">
+	            <div class="additems"> </div>
+	            <p>Add Items</p>
+            </button>            
+            <button class="function" value="Info" type="submit" name="commit">
+	            <div class="info"> </div>
+	            <p>Info</p>
+            </button>
+            <button class="deleteButton" type="button" title="@Model.Name" onclick="deleteConfirm()">
+                <div class="delete"> </div>
+	            <p>Delete</p>
+            </button>
+            <button class="hiddenDelete" value="Delete" type="submit" name="commit" style="display:none" />  
+        </div>
+        </fieldset>
+        
+        switch(Model.PostMethod)
+        {
+            default:
+            <fieldset>        
+                <table class="info">
+                    @foreach (var property in Model.ItemProperties.AllKeys)
+                    {
+                        <tr>
+                            <td>@property:</td>
+                            <td>@Model.ItemProperties[property]</td>
+                        </tr>
+                    }
+                </table>
+            </fieldset>
+            break;
+            
+            case "AddItems":
+            <fieldset>
+                <div class="additemsmenu">
+                    <button value="AddDatasource" class="additembutton" type="button" onclick="addDataSource()">
+                        <div class="addDatasource"></div>
+                        <p>Add Datasource</p>
+                    </button>
+                    <button value="AddReport" class="additembutton" type="button" onclick="addReport()">
+                        <div class="addReport"></div>
+                        <p>Add Report</p>
+                    </button>
+                    <button value="AddLinkedReport" class="additembutton" type="button" onclick="addLinkedReport()">
+                        <div class="addLinkedReport"></div>
+                        <p>Add Linked Report</p>
+                    </button>
+                    <button value="AddFolder" class="additembutton" type="button" onclick="addFolder()">
+                        <div class="addFolder"></div>
+                        <p>Add Folder</p>
+                    </button>
+                </div>
+                <div class="additemscontent">
+                    <div class="additemDatasource" style="display:none;">
+                        <h3>Add Datasource</h3>
+                        <table>
+                            @foreach (var property in Model.DataSourceItem.itemProperties)
+                            {
+                                <tr>
+                                    <td><label>@property.Label</label></td>
+                                    <td>
+                                        @if ((property.PropertyName.Equals("Password", StringComparison.OrdinalIgnoreCase)) || (property.PropertyName.Equals("ConfirmPassword", StringComparison.OrdinalIgnoreCase)))
+                                        {
+                                            <input type="password" value="@property.Value" name="@property.PropertyName" style="width:300px;" />
+                                        }
+                                        else
+                                        {
+                                            <input type="text" value="@property.Value" name="@property.PropertyName" style="width:300px;" />
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td></td>
+                                <td><button type="submit" value="Save Data Source" name="commit" class="button-saveDatasource">Save</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="additemsreport" style="display:none;">
+                        <h3>Add Report</h3>
+                        <table>
+                            <tr>
+                                <td><label>File to Upload: </label></td>
+                                <td><input type="text" value="" name="ReportFileName" style="width:300px;" /></td>
+                                <td><button type="button" class="button-saveDatasource">Browse...</button></td>
+                            </tr>
+                            <tr>
+                                <td><label>Name: </label></td>
+                                <td><input type="text" value="" name="ReportName" style="width:300px;" /></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button class="button-saveDatasource">Upload</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="additemsfolder" style="display:none;">
+                        <h3>Add Folder</h3>
+                        <table>
+                        <tr>
+                            <td><label>Folder Name: </label></td>
+                            <td><input type="text" value="" name="FolderName" style="width:300px;" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="button-saveDatasource">Create</button></td>
+                        </tr>
+                        </table>
+                    </div>
+                    <div class="additemslinkedreport" style="display:none;">
+                        <h3>Add Linked Report</h3>
+                        <table>
+                            <tr>
+                                <td><label>Name: </label></td>
+                                <td><input type="text" value="" name="LinkedReportName" style="width:300px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><label>Location: </label></td>
+                                <td><input type="text" value="" name="Location" style="width:300px;" /></td>
+                            </tr>
+                            <tr>
+                                <td><label>Linked To: </label></td>
+                                <td><input type="text" value="" name="LinkedTo" style="width:300px;" /></td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td><button class="button-saveDatasource">Create</button></td>
+                        </tr>
+                        </table>
+                    </div>
+                </div>
+                
+
+            </fieldset>
+            break;
+        }
+        }
+}
+</div>
+}
+</td>
+</tr>
+</table>
+
+

@@ -1,0 +1,518 @@
+﻿/*
+Modified by: Danica Delos Reyes
+Notes:
+	* Color definition:
+		> Values are in HEX if you don't have to set transparency
+		> Values are in rgba format for transparency effect
+	* Most of the colors used:
+		> #000000 (Black)			- rgb (0, 0, 0)			- for texts
+		> #ffffff (white)			- rgb (255, 255, 255)	- for texts and background
+		> #0072bb (NavI blue)		- rgb (0, 114, 187)		- menu background, borders
+		> #71dad8 (NavI bluegreen)	- rgb (113, 218, 216)	- footer gradient shade
+		> #4573bc (NavI light blue) - rgb (69, 115, 188)	- login button
+		> #f8dff8 (Light pink)		- rgb (248, 223, 248)	- used in error message bg
+		> #da71a2 (Dark pink)		- rgb (218, 113, 162)	- used in error message texts
+*/
+
+body 
+{
+	background-color: white;
+	font-family: Calibri, Century Gothic, Sans-Serif;
+	color: black;
+	margin: 0px;
+	overflow: auto;
+}
+
+/* Header Portion */
+#header
+{
+	position:relative;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	height: 78px;/*used to be 50*/	
+	top: 0px;
+	
+	background-image: url(Images/HeaderBackground.gif);
+	background-repeat: repeat-x;
+	border-bottom: 2px solid #0072bb;
+}
+
+#header div
+{
+	vertical-align:baseline;
+	float: right;
+	overflow:hidden;
+}
+
+#header #logo
+{	
+	float: left;
+	margin: inherit;
+	width: 813px;
+}
+
+#header #logo a
+{
+	overflow: hidden;
+	display:block;/*hides link*/
+	background-image: url(images/NRLogo.gif);
+	background-repeat: no-repeat;
+	text-indent: -9999px;	
+	height:102px;
+	margin-top:0;
+}
+
+#header #account-login
+{
+	margin: 0px 0px 0px 0px;
+	border-radius: 0px 0px 0px 20px;
+	box-shadow:inset 0 0 10px #000000;
+	background: #ffffff;
+	width: 375px;
+	position: absolute;
+	right: 0px;
+}
+
+#header #account li
+{
+	list-style-type: none;
+	overflow:hidden;
+	padding: 10px;
+	float: right;	
+	margin-right:10px;
+}
+
+/* Login Portion */
+body #Login
+{
+	width: 400px;
+	margin:15% auto; /*Temporary solution to place login box in middle of page. In JS, set margin-top to "window height - loginbox height / 2" pixels*/
+	border-radius: 12px;
+	padding: 8px;
+	box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+	border:1px solid #0072bb;
+	background:-webkit-gradient( 
+	linear, 
+	left bottom, 
+	left top, 
+	color-stop(0.1, #34619d), 
+	color-stop(0.8, #3b7bc9) );
+}
+
+body #Login h2
+{
+	color: White;
+	text-shadow: 0.25px 0.25px 10px #111;
+	margin-right: 5px;
+}
+
+fieldset.login
+{
+	border: 1px solid #0072bb;
+	border-radius: 12px;
+	box-shadow:inset 0 0 10px #000000;
+	background-color:#ffffff;
+	padding: 10%;
+}
+
+fieldset.submit
+{
+	border:0px;
+	text-align:right;
+	padding-top: 10px;
+}
+
+input.text, select
+{
+	margin: 5px 0 10px 10px;
+	border-radius: 5px;
+	height:25px;
+	border: 1px solid #0072bb;
+	background-color:White
+}
+
+input.submit 
+{
+	font-family:inherit;
+	font-size:medium;
+	font-weight: bold;
+	color:white;
+	text-shadow: 1px 1px 3px #111;
+	background-color:transparent;
+	border-radius: 8px;
+	border: 2px solid #white;
+	height: 30px;
+	width: 100px;
+}
+
+input.submit:hover
+{
+	background-color:#71dad8;
+}
+
+/* Error message portion*/
+#Error
+{
+	background-color: #f8dff8;
+	padding: 10px 0 10px 0;
+	margin: 0 0 10px 0;
+	color: Red;
+	font-size: small;
+	list-style-position:inside;
+	height: auto;
+	border-top: 1px solid #da71a2;
+	border-bottom: 1px solid #da71a2;
+	text-align:center;
+	overflow:hidden;
+}
+
+div.hideError
+{
+	display:none;
+}
+
+div.showError
+{
+	display:block;
+}
+
+
+
+
+
+/* Menu Portion */
+#menu
+{
+	height: 35px;
+	position:relative;
+
+	width: 100%;
+	background-color: #0072bb;
+	box-shadow:inset 0px 5px 20px #71dad8;
+	border: 2px solid rgba(69, 115, 188, 0.3);
+	border-right:0px solid;
+	border-left:0px solid;
+	padding-left:20px;
+}
+
+#menu div
+{
+	
+	height:inherit;
+	padding-left: 20px;
+	overflow:hidden;
+}
+
+#menu button
+{
+	border:0px;
+	background-color:transparent;
+	height:inherit;
+}
+
+#menu button a
+{
+	text-decoration: none;
+	text-shadow: #336699 1px 1.5px 1px;
+	font-weight:bold;
+	font-size:medium;
+	color:white;
+}
+
+
+#menu button:hover
+{
+	background-color: rgba(180, 0, 80, 0.5);
+	color:White;
+}
+
+
+/* Footer Portion */
+
+#footer 
+{
+	margin-bottom: 0px;
+	bottom: 0px;
+	left:0px;
+	height:30px;
+	width:100%;
+	color: white;
+	background-color: #0072bb;
+	box-shadow:inset 0px 5px 15px 0.25px #71dad8;
+	border: 2px solid rgba(69, 115, 188, 0.3);
+	border-top: 3px solid #0072BB;
+	border-right:0px solid;
+	border-left:0px solid;
+	position:fixed;
+}
+
+#footer p 
+{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+/*Main*/
+
+#main
+{
+	height: auto;
+	height: 100%;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	width: 100%;
+	overflow: auto;
+
+}
+
+#main h2
+{
+	margin: 5px;
+}
+
+
+/*Content*/
+fieldset
+{
+	border-radius: 5px;
+	
+}
+
+td.Content
+{
+	vertical-align: top;
+}
+div.Content
+{
+	margin-top: 0px;
+	margin-bottom:10px;	
+	padding: 10px; 	
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;	
+	margin-left: 10px;
+	width: auto;
+	height: auto;
+	overflow: auto;
+	vertical-align: top;
+}
+/*Noel- Updated*/
+div.Content input, select
+{
+	margin: 5px 0 10px 10px;
+	border-radius: 5px;
+	height: 25px;
+	width: 120px;
+	border: 1px solid #0072BB;
+	background-color: white !important;
+}
+
+div.Content fieldset
+{
+	border: 1px solid #0072bb;
+}
+
+div.parameters
+{
+	overflow: auto;
+	min-height: 50px;
+	max-height: 130px;
+	width: inherit;
+}
+
+div.parameter
+{
+	width: 150px;
+	height: 60px;
+	float: left;
+}
+
+/*tree*/
+.tree
+{
+	background-color: White;
+	color: Black;
+	float:left;
+}
+
+div.tree
+{
+	margin-top: 0px;
+	margin-bottom: 50px;
+	overflow: auto;	
+	min-height: 50%;
+	width: auto;
+	border-radius: 0 10px 10px 0;
+	height:auto;
+	border: 1px solid #0072bb;
+	
+	background: -webkit-gradient( 
+	linear, 
+	left top, 
+	right top, 
+	color-stop(0.1, #E1F1FF), 
+	color-stop(0.8, #F5FAFF) );
+}
+
+.tree li, .tree ul
+{
+	white-space: nowrap;
+	background-color: transparent;
+	background-image: none;
+}
+
+.tree li a, .tree ul a
+{
+	text-decoration:none;
+	color:Black;
+}
+
+.tree li a:hover
+{
+	background-color: white;
+}
+
+li.Folder
+{
+	list-style-position:inherit;
+	margin-left: 5px;
+	list-style-image:url("images/Folder.gif");
+}
+
+li.Report
+{
+	list-style-position:inherit;
+	list-style-image:url("images/Report.gif");
+}
+
+li.LinkedReport
+{
+	list-style-position:inherit;
+	list-style-image:url("images/LinkedReport1.gif");
+}
+
+li.DataSource
+{
+	list-style-position:inherit;
+	list-style-image:url("images/Datasource.gif");
+}
+
+HideUl
+{
+	display: none;
+}
+
+ShowUl
+{
+	display: none;
+}
+
+div.Folder-Expanded
+{
+	float:left;
+	list-style:none;
+	list-style-image:none;
+	margin-left: -35px;
+	height: 20px;
+	width: 10px;
+	background-image:url("images/minus.gif");
+	
+	background-position:center;
+	background-repeat: no-repeat;
+}
+
+div.Folder-Contracted
+{
+	float:left;
+	list-style:none;
+	list-style-image:none;
+	margin-left: -35px;
+	height: 20px;
+	width: 10px;
+	background-image:url("images/plus.gif");
+	background-position:center;
+	background-repeat: no-repeat;
+}
+
+div.Folder-Empty
+{
+	float:left;
+	list-style:none;
+	list-style-image:none;
+	margin-left: -35px;
+	height: 20px;
+	width: 10px;
+	background-image:none;
+}
+
+div.Folder:hover
+{
+	background-color: rgba(0, 114, 255, 0.3);
+}
+
+div.functions
+{
+	width: 100%;	
+}
+
+div.function, div.run, div.export, div.diagnose, div.info, button.function
+{
+	float: left;
+	font-family: Calibri, San-serif;
+	margin-right: 10px;
+}
+
+button.function
+{
+	height: 40px;
+	width: 110px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+div.run
+{
+	background-image: url('images/runreport.gif');
+	background-repeat: none;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.export
+{
+	background-image: url('images/exportreport.gif');
+	background-repeat: none;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.diagnose
+{
+	background-image: url('images/diagnosereport.gif');
+	background-repeat: none;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.info
+{
+	background-image: url('images/info.gif');
+	background-repeat: none;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.delete
+{
+	background-image: url('images/delete.gif');
+	background-repeat: none;
+	height: 25px;
+	width: 25px;
+	float: left;
+}

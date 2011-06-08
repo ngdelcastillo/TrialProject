@@ -1,0 +1,13 @@
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Services\obj\Debug\ResolveAssemblyReference.cache
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Services\obj\Debug\Navitaire.Reporting.Services.dll
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Services\obj\Debug\Navitaire.Reporting.Services.pdb
+D:\R&D\Reporting-MVC3\src\Navitaire.Reporting.Services\obj\Debug\ResolveAssemblyReference.cache
+D:\R&D\Reporting-MVC3\bin\Navitaire.Reporting.Services.dll
+D:\R&D\Reporting-MVC3\bin\Navitaire.Reporting.Services.pdb
+D:\R&D\Reporting-MVC3\src\Navitaire.Reporting.Services\obj\Debug\Navitaire.Reporting.Services.dll
+D:\R&D\Reporting-MVC3\src\Navitaire.Reporting.Services\obj\Debug\Navitaire.Reporting.Services.pdb
+D:\Noel\Reporting-MVC3\bin\Navitaire.Reporting.Services.dll
+D:\Noel\Reporting-MVC3\bin\Navitaire.Reporting.Services.pdb
+D:\Noel\Reporting-MVC3\src\Navitaire.Reporting.Services\obj\Debug\ResolveAssemblyReference.cache
+D:\Noel\Reporting-MVC3\src\Navitaire.Reporting.Services\obj\Debug\Navitaire.Reporting.Services.dll
+D:\Noel\Reporting-MVC3\src\Navitaire.Reporting.Services\obj\Debug\Navitaire.Reporting.Services.pdb

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="NAVITAIRE-REPORTING-Web.config Connection String" description="NAVITAIRE-REPORTING Connection String used in web.config by the application to access the database." defaultvalue="Database=NRAppDB;Server=(local)\sql2008;uid=sa;pwd=Navnt!23" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NAVITAIRE-REPORTING']/@connectionString" />
+  </parameter>
+</parameters>

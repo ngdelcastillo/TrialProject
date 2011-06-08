@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4B41C75-2E30-430C-86FD-F9378109500E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Navitaire.Reporting.Security</RootNamespace>
+    <AssemblyName>Navitaire.Reporting.Security</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\lib\NCA\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\lib\NCA\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\..\lib\NCA\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder">
+      <HintPath>..\..\lib\NCA\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncl">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncl.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncl.ComponentModel">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncl.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncl.Diagnostics.Logging.EnterpriseLibrary">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncl.Diagnostics.Logging.EnterpriseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncl.ServiceModel">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncl.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncs.Security.Client.Web">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncs.Security.Client.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncs.Security.Contract">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncs.Security.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncs.Security.ServiceModel">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncs.Security.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncs.Users.Contract">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncs.Users.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="Navitaire.Ncs.Users.Management.Client">
+      <HintPath>..\..\lib\NCA\Navitaire.Ncs.Users.Management.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthenticationInformation.cs" />
+    <Compile Include="AuthenticationManager.cs" />
+    <Compile Include="Exceptions\AccessDeniedException.cs" />
+    <Compile Include="Exceptions\LogonException.cs" />
+    <Compile Include="Exceptions\PasswordsMustMatchException.cs" />
+    <Compile Include="Exceptions\ResetPasswordException.cs" />
+    <Compile Include="Permission.cs" />
+    <Compile Include="PermissionCollection.cs" />
+    <Compile Include="PermissionConstants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityManager.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

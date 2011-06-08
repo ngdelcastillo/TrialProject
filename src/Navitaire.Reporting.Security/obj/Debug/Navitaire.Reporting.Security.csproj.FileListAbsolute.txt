@@ -1,0 +1,13 @@
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Security\obj\Debug\ResolveAssemblyReference.cache
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Security\obj\Debug\Navitaire.Reporting.Security.dll
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Security\obj\Debug\Navitaire.Reporting.Security.pdb
+D:\R&D\Reporting-MVC3\bin\Navitaire.Reporting.Security.dll
+D:\R&D\Reporting-MVC3\bin\Navitaire.Reporting.Security.pdb
+D:\R&D\Reporting-MVC3\src\Navitaire.Reporting.Security\obj\Debug\ResolveAssemblyReference.cache
+D:\R&D\Reporting-MVC3\src\Navitaire.Reporting.Security\obj\Debug\Navitaire.Reporting.Security.dll
+D:\R&D\Reporting-MVC3\src\Navitaire.Reporting.Security\obj\Debug\Navitaire.Reporting.Security.pdb
+D:\Noel\Reporting-MVC3\bin\Navitaire.Reporting.Security.dll
+D:\Noel\Reporting-MVC3\bin\Navitaire.Reporting.Security.pdb
+D:\Noel\Reporting-MVC3\src\Navitaire.Reporting.Security\obj\Debug\ResolveAssemblyReference.cache
+D:\Noel\Reporting-MVC3\src\Navitaire.Reporting.Security\obj\Debug\Navitaire.Reporting.Security.dll
+D:\Noel\Reporting-MVC3\src\Navitaire.Reporting.Security\obj\Debug\Navitaire.Reporting.Security.pdb

@@ -1,0 +1,13 @@
+﻿@model Navitaire.Reporting.Web.Models.SettingsModel
+@{
+    ViewBag.Title = "Security";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+    Navitaire.Reporting.Web.Models.CatalogModel model = new Navitaire.Reporting.Web.Models.CatalogModel();
+ }
+@Html.Partial("_SettingsMenu")
+<h2>Security</h2>
+<div id="SecurityTree">
+@Html.Partial("_Tree")
+</div>
+
+

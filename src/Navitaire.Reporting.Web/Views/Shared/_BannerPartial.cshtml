@@ -1,0 +1,14 @@
+﻿@using Navitaire.Reporting.Web.Models
+@{
+    LoginModel login = (LoginModel)Session["AuthenticatedUser"];
+    string username = login.Domain +"\\"+ login.Username;    
+}
+<h1 id="logo">
+    <a href="../Catalog/Index">Navitaire Reporting</a>
+</h1>
+<div id="account-login">
+    <ul id="account">    
+        <li>@Html.ActionLink("Log Out", "Logout", "Login")</li>
+        <li>Welcome @username!</li>   
+    </ul>
+</div>

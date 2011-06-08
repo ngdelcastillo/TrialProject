@@ -1,0 +1,1006 @@
+﻿/*
+	Inspired by SkySales theme
+*/
+/*generals*/
+body 
+{
+	background-color: white;
+	font-family: Calibri, Century Gothic, Sans-Serif;
+	color: black;
+	margin: 0px;
+	overflow: auto;
+}
+
+button, input[type="submit"]
+{
+	font-weight: bold;
+}
+
+button:hover, input[type="submit"]:hover
+{
+	opacity:0.5;
+	cursor: pointer; cursor: hand;
+}
+
+input[type=text]
+{
+	background-color: white;
+	color: Black;
+}
+
+a
+{
+	text-decoration: none;
+	height: 100%;
+	width: 100%;
+	color: White;
+	display: block;
+}
+
+/* Header Portion */
+#header
+{
+	position:relative;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	height: 78px;	
+	border: 1px solid transparent;
+	background-image: url(Images/headerbg.gif);
+	background-repeat: repeat-x;
+	border-bottom: 1px solid black;
+	box-shadow: 0px 0px 3px 1px black;
+}
+
+#header div
+{
+	vertical-align:baseline;
+	float: right;
+	overflow:hidden;
+}
+
+#header #logo
+{	
+	float: left;
+	margin: inherit;
+	
+}
+
+#header #logo a
+{
+	width: 216px;
+	height: 90px;
+	
+	overflow: hidden;
+	display:block;/*hides link*/
+	background-image: url(images/navitaire.gif);
+	background-repeat: no-repeat;
+	text-indent: -9999px;	
+	margin-top:0;
+}
+
+#header #account-login
+{
+	margin: 0px;
+	background-color: transparent;
+	color: White;
+	/*assign text shadow*/
+	width: 375px;
+	position: absolute;
+	right: 0px;
+}
+
+#header #account li
+{
+	list-style-type: none;
+	overflow:hidden;
+	padding: 10px;
+	float: right;	
+	margin-right:10px;
+}
+
+#header #account li a
+{
+	text-decoration: none;
+	color: White;
+	border: 1px solid black;
+	background: -webkit-gradient( 
+	linear, 
+	left top, 
+	left bottom, 
+	color-stop(0.9, #000000),
+	color-stop(0.1, #a0a0a0));
+	padding: 5px;
+}
+
+#header #account li a:Hover
+{
+	/*background: rgba(255, 255, 255, 0.1);*/
+	opacity: 0.5;
+}
+
+/* Login Portion */
+body #Login
+{
+	width: 400px;
+	height: 50%;
+	margin-left: auto;
+	margin-right: auto; 
+	margin-top: 10%;
+/*Temporary solution to place login box in middle of page. 
+In JS, set margin-top to "window height - loginbox height / 2" pixels*/
+	border-radius: 12px;
+	padding: 8px;
+	box-shadow: 0px 0px 3px 1px black;
+	background:-webkit-gradient( 
+	linear, 
+	right top, 
+	left top, 
+	color-stop(0.5, #f1f1f1), 
+	color-stop(0.1, #d0d0d0) );
+}
+
+body #Login h2
+{
+	color: Black;
+	margin-right: 5px;
+}
+
+fieldset.login
+{
+	border-radius: 12px;
+	box-shadow:inset 0 0 3px 1px #000000;
+	background-color:#ffffff;
+	padding: 10%;
+}
+
+fieldset.submit
+{
+	border:0px;
+	text-align:right;
+	padding-top: 10px;
+}
+
+input.text 
+{
+	margin: 5px 0 10px 10px;
+	border-radius: 5px;
+	height:25px;
+	border: 1px solid #0072bb;
+	background-color:White;
+}
+
+input.submit 
+{
+	font-family:inherit;
+	font-size:medium;
+	font-weight: bold;
+	color:White;
+	background: -webkit-gradient( 
+	linear, 
+	left top, 
+	left bottom, 
+	color-stop(0.9, #000000),
+	color-stop(0.1, #a0a0a0));
+	border: 1px solid black;
+	height: 30px;
+	width: 100px;
+	text-shadow:black 1px 1.5px 1px;
+}
+
+input.submit:hover
+{
+	opacity: 0.5;
+}
+
+/* Error message portion*/
+#Error
+{
+	background-color: #f8dff8;
+	padding: 10px 0 10px 0;
+	margin: 0 0 10px 0;
+	color: Red;
+	font-size: small;
+	list-style-position:inside;
+	height: auto;
+	border-top: 1px solid #da71a2;
+	border-bottom: 1px solid #da71a2;
+	text-align:center;
+	overflow:hidden;
+}
+
+div.hideError
+{
+	display:none;
+}
+
+div.showError
+{
+	display:block;
+}
+
+/* Menu Portion */
+#menu
+{
+	height: 35px;
+	position:relative;
+	width: 100%;
+	max-width: 100%;
+	border-right:0px solid;
+	border-left:0px solid;	
+	background: -webkit-gradient( 
+	linear, 
+	left top, 
+	left bottom, 
+	color-stop(0.9, #000000),
+	color-stop(0.1, #a0a0a0));
+	border-radius: 0px 0px 10px 10px;
+	border: 1px solid black;
+	border-top: none;
+	box-shadow: -1px -1px 3px 1px black;
+}
+
+#menu div
+{
+	height:inherit;
+	overflow:hidden;
+	padding: 0 10px 0 10px;
+}
+
+#menu button
+{
+	border:0px;
+	background-color:transparent;
+	height:inherit;
+}
+
+#menu button a
+{
+	text-decoration: none;
+	text-shadow: black 1px 1.5px 1px;
+	font-weight:bold;
+	font-size:medium;
+	color:white;
+}
+
+
+#menu button:hover
+{
+	opacity: 0.5;
+	color:White;
+}
+
+
+/* Footer Portion */
+
+#footer 
+{
+	margin-bottom: 0px;
+	bottom: 0px;
+	left:0px;
+	height:40px;
+	width:100%;
+	color: white;
+	background-image: url(Images/footerbg.gif);
+	background-repeat:repeat-x;
+	border: 2px solid rgba(69, 115, 188, 0.3);
+	position: fixed;
+	border-top: 1px solid black;
+	border-radius: 10px 10px 0 0;
+	box-shadow: 0px 0px 3px 1px black;
+}
+
+#footer p 
+{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+/*Main*/
+
+#main
+{
+	min-height:100%;
+	height: auto !important;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	width: 100%;
+	overflow-x: visible;
+
+}
+
+#main h2
+{
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+}
+
+
+/*Content*/
+fieldset
+{
+	border-radius: 5px;
+}
+
+/*Noel- Updated*/
+td.content
+{
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+#main table
+{
+	max-width: 100%;
+}
+/*Noel- Updated*/
+div.content 
+{
+	padding: 1%;
+	margin-left: 1%;
+	margin-bottom:10px;
+	margin-right: 1%;
+	overflow: auto;
+	box-shadow: 0px 0px 3px 1px black;
+	border-radius: 10px;
+	background:-webkit-gradient( 
+	linear, 
+	right top, 
+	left top, 
+	color-stop(0.5, #f1f1f1), 
+	color-stop(0.1, #d0d0d0) );
+}
+
+div.content input[type="text"], select/*dan*/
+{
+	margin: 5px 0 10px 10px;
+	border-radius: 5px;
+	height: 25px;
+	
+	border: 1px solid #0072BB;
+	background-color: white !important;
+}
+
+div.content input, select
+{
+	margin: 5px 0 10px 10px;
+	border-radius: 5px;
+	height: 25px;
+	width: 120px;
+	border: 1px solid #0072BB;
+	background-color: white !important;
+}
+
+div.content span
+{
+	font-size: small;
+	margin-bottom: 1em;
+	display: block;
+}
+
+div.content h3
+{
+	margin-top: 1em;
+	margin-bottom: 0em;
+}
+
+div.parameters
+{
+	overflow: auto;
+	min-height: 50px;
+	max-height: 250px;
+	width: inherit;
+}
+
+/*Noel- Updated*/
+div.parameter
+{
+	width: 250px;
+	height:60px;
+	float: left;
+}
+
+div.report
+{
+	width: 100%;	
+}
+
+div.report iframe
+{
+	float: left;
+	width: 100%;
+	min-height: 350px;
+	max-height: 1000px;
+}
+
+/*tree*/
+.tree
+{
+	background-color: White;
+	color: Black;
+	float:left;
+}
+
+/*Noel - Updated*/
+div.tree
+{
+	margin-top: 0px;
+	margin-left: 10px;
+	margin-bottom: 50px;
+	min-height: 50%;
+	height:auto;
+	width: auto;
+	overflow: auto;
+	border-radius: 10px;
+	box-shadow: 0px 0px 3px 1px black;
+	background:-webkit-gradient( 
+	linear, 
+	right top, 
+	left top, 
+	color-stop(0.5, #f1f1f1), 
+	color-stop(0.1, #d0d0d0) );
+}
+
+.tree li, .tree ul
+{
+	white-space: nowrap;
+	background-color: transparent;
+	background-image: none;
+}
+
+.tree li a, .tree ul a
+{
+	text-decoration:none;
+	color:black;
+}
+
+.tree li a:hover
+{
+	background-color: white;
+}
+
+li.Folder
+{
+	list-style-position:inherit;
+	margin-left: 5px;
+	list-style-image:url("images/Folder.gif");
+}
+
+li.Report
+{
+	list-style-position:inherit;
+	list-style-image:url("images/Report.gif");
+}
+
+li.LinkedReport
+{
+	list-style-position:inherit;
+	list-style-image:url("images/LinkedReport.gif");
+}
+
+li.DataSource
+{
+	list-style-position:inherit;
+	list-style-image:url("images/Datasource.gif");
+}
+
+HideUl
+{
+	display: none;
+}
+
+ShowUl
+{
+	display: none;
+}
+
+div.Folder-Expanded
+{
+	float:left;
+	list-style:none;
+	list-style-image:none;
+	margin-left: -35px;
+	height: 20px;
+	width: 10px;
+	background-image:url("images/minus.gif");
+	
+	background-position:center;
+	background-repeat: no-repeat;
+}
+
+div.Folder-Contracted
+{
+	float:left;
+	list-style:none;
+	list-style-image:none;
+	margin-left: -35px;
+	height: 20px;
+	width: 10px;
+	background-image:url("images/plus.gif");
+	background-position:center;
+	background-repeat: no-repeat;
+}
+
+div.Folder-Empty
+{
+	float:left;
+	list-style:none;
+	list-style-image:none;
+	margin-left: -35px;
+	height: 20px;
+	width: 10px;
+	background-image:none;
+}
+
+div.Folder:hover
+{
+	background-color: rgba(0, 114, 255, 0.3);
+}
+
+/*Noel - Updated: Hasn't chosen any design yet*/
+div.functions button, .button-saveDatasource
+{
+	border: 1px solid black;
+	width: 170px;
+	background: -webkit-gradient( 
+	linear, 
+	left top, 
+	left bottom, 
+	color-stop(0.9, #000000),
+	color-stop(0.1, #a0a0a0));
+	float: left;
+	text-shadow:black 1px 1.5px 1px;
+	color: White;
+	font-weight: bold;
+	cursor: pointer; cursor: hand;
+	margin-left: 5px;
+	border-radius: 5px;
+	height: 32px;
+}
+
+.button-saveDatasource
+{
+	margin: 5px 0 10px 10px;	
+}
+
+div.function, div.run, div.export, div.diagnose, div.info, div.delete, div.edit
+{
+	float: left;
+	font-family: Calibri, San-serif;
+	margin-right: 10px;
+	
+}
+
+div.run
+{
+	background-image: url('images/runreport.gif');
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.export
+{
+	background-image: url('images/exportreport.gif');
+	background-repeat: none;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.diagnose
+{
+	background-image: url('images/diagnosereport.gif');
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.info
+{
+	background-image: url('images/info.gif');
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.appinfo
+{
+	background-image: url('images/info.gif');
+	height: 25px;
+	width: 25px;
+	float:right;
+	left-margin: -10px;
+}
+
+div.delete
+{
+	background-image: url('images/delete.gif');
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.edit
+{
+	background-image: url("images/Text-Edit-icon.png");
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.additems
+{
+	background-image: url("images/additems.png");
+	background-repeat: no-repeat;
+	height: 25px;
+	width: 25px;
+	float: left;
+}
+
+div.addDatasource
+{
+	background-image: url("images/adddatasource.png");
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;	
+	background-position: center;	
+	float: left;	
+}
+
+div.addReport
+{
+	background-image: url("images/addreport.png");
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;	
+	background-position: center;	
+	float: left;	
+}
+
+div.addLinkedReport
+{
+	background-image: url("images/addlinkedreport.png");
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;	
+	background-position: center;	
+	float: left;	
+}
+
+div.addFolder
+{
+	background-image: url("images/addfolder.png");
+	background-repeat: no-repeat;
+	width: 60px;
+	height: 60px;	
+	background-position: center;	
+	float: left;	
+}
+
+button.additembutton
+{
+	float: left;
+	width: 200px;
+	height: 100px;
+	margin-left: 10px;
+	display: block;
+}
+
+button.additembutton p
+{
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+div.additemsmenu
+{
+	width: 205px;
+	margin-right: 40px;
+	float: left;
+}
+div.additemscontent 
+{
+	width: 70%;
+	float: left;
+}
+
+/* Dashboard Design */
+
+.dashboard-container
+{
+	position: absolute;
+	top: 150px;
+	left: 50px;
+	right: 50px;
+	bottom: 10px;
+	-webkit-box-sizing: border-box;
+}
+
+.dashboard-board, .dashboard-board header, .dashboard-board section
+{
+	border-top-left-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-webkit-border-top-right-radius: 10px;
+	border-bottom-right-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-top-bottom-radius: 6px;
+	background: #7F6540;
+	background-image: -webkit-gradient(linear,center top,center bottom,from(#BD9877),to(#7F6540));
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.33),0 0 15px rgba(0, 0, 0, 0.95);
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.33),0 0 15px rgba(0, 0, 0, 0.95);
+	-moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.33),0 0 15px rgba(0, 0, 0, 0.95);
+}
+
+.dashboard-board header
+{
+	background: -webkit-gradient(linear,center top,center bottom,from(rgba(255, 255, 255, 0.01)),to(rgba(0, 0, 0, 0.1))),url(/springpad/images/layout/bg.moleskin.png) repeat center center #1B1A15;
+	color: #ECDEC7;
+}
+
+.dashboard-title
+{
+	color: inherit;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 60%;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 10px;
+	padding-left: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-decoration: none;
+}
+
+.dashboard-board aside
+{
+	background: -webkit-gradient(linear,left center,right center,from(rgba(233, 233, 233, 0.2)),color-stop(50%,rgba(247, 247, 247, 0.3)),to(rgba(233, 233, 233, 0.2))),url(/springpad/images/layout/bg.texture.lightpaper.png) repeat left top #F5EEE6;
+	position: absolute;
+	left: 10px;
+	top: 45px;
+	bottom: 15px;
+	z-index: 1;
+	-webkit-transition: width 0.33s ease-in-out;
+	-moz-transition: width 0.33s ease-in-out;
+	-o-transition: width 0.33s ease-in-out;
+	transition: width 0.33s ease-in-out;
+	box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.66),0 0 4px rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.66),0 0 4px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.66),0 0 4px rgba(0, 0, 0, 0.8);
+	overflow: visible;
+}
+
+.dashboard-content
+{
+	position: absolute;
+	left: 190px;
+	top: 45px;
+	right: 10px;
+	bottom: 10px;
+	z-index: 2;
+	box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.66),0 0 8px rgba(0, 0, 0, 1);
+	-webkit-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.66),0 0 8px rgba(0, 0, 0, 1);
+	-moz-box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.66),0 0 8px rgba(0, 0, 0, 1);
+	-webkit-transition: all 0.33s ease-in-out;
+	-moz-transition: all 0.33s ease-in-out;
+	-o-transition: all 0.33s ease-in-out;
+	transition: all 0.33s ease-in-out;
+	overflow-x: visible;
+	overflow-y: auto;
+	background: #F5EEE6 url(/springpad/images/layout/bg.texture.main.png) repeat left top;
+	background: url(/springpad/images/elements/watermark.corner.botton_right.png) no-repeat right bottom,url(/springpad/images/layout/bg.texture.main.png) repeat left top #F5EEE6;
+}
+
+.dashboard-panel, .dashboard-canvas 
+{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.dashboard-canvas div, 
+{
+	height: 200px;
+	width: 400px;
+	-webkit-user-drag: element;
+	-webkit-user-select: none;	
+}
+
+.dashboard-add-widgets
+{
+	position: absolute;
+	right: 10px;
+	top: 40px;
+	width: 250px;
+	z-index: 5;
+	padding: 10px;
+	border: 1px solid #CCC;
+	background: white;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-widget iframe
+{
+	width: 500px;
+	height: 500px;
+}
+
+
+/****Changes by Danica 04.26.2011****/
+
+table
+{	
+	border: 0px solid;
+}
+
+table.content
+{
+	margin: 15px;
+	border-collapse: collapse;
+}
+
+table.content th, table.content td
+{
+	vertical-align: middle;
+	border:1px solid gray;
+	padding: 0 10px 0 10px;
+}
+
+
+table.content th {background: #C0C0C0}
+table.content tr:nth-child(odd) {background: #D0D0D0 }
+table.content tr:nth-child(even) {background: white}
+
+img.delete-item
+{
+	background-image: url('images/delete-item.gif');
+	height: 15px;
+	width: 15px;
+	float: right;
+	margin-left: 10px;
+	vertical-align: middle;
+}
+
+input.button
+{
+	border: 1px solid black;
+	height: 25px;
+	background: -webkit-gradient( 
+	linear, 
+	left top, 
+	left bottom, 
+	color-stop(0.9, #000000),
+	color-stop(0.1, #a0a0a0));
+	text-shadow:black 1px 1.5px 1px;
+	color: White;
+	font-weight: bold;
+	cursor: pointer; cursor: hand;
+	margin: 5px 5px 5px;
+	margin-left: 15px;
+}
+
+
+button.image-button
+{
+	background: none none;
+	border: none;
+	width: 15px;
+	height: 15px;
+	float:right;
+	padding: 0px;
+	margin-left: 10px;
+	cursor:pointer ; cursor: hand;
+}
+
+#SettingsTree
+{
+	position:static;
+	width: auto;
+	height: 300px;
+	min-width: 400px;
+	overflow: scroll;
+}
+#ExportTree
+{
+	margin-top:0px;
+	zoom: 85%;
+}
+
+#SecurityTree
+{
+	margin-top: 50px;
+}
+
+div.settings select
+{
+	width: 200px;/*dan*/
+}
+
+div.settings input[type="text"]
+{
+	width: 200px;
+}
+
+/*Do not Edit below part. Those are for prompt dialogs.*/
+/*
+#dialog-confirm
+{
+	display: none;
+}
+*/
+.settings select,.settings input[type="text"]
+{
+	width: 200px;/*dan*/
+}
+
+div.settings-menu, div.settings-menu a
+{
+	width: 150px;
+}
+
+button.widget-item
+{
+	text-align: center;
+	height: 40px;
+	width:inherit;
+	line-height: 40px;
+	
+	border:0px solid;
+	border-radius: 0 10px 10px 0;
+	background-image: url(Images/headerbg.gif);
+	background-repeat: repeat-x;
+	border-left: 3px solid black;
+	border-bottom: 2px solid black;
+	display:block;
+}
+
+td.settings-main
+{
+	width:100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+div.description
+{
+	display: none;
+	z-index: 500;
+	width: 200px;
+	height: auto;
+	background: black;
+	opacity: 0.8;
+	color: White;
+	position:absolute;
+	vertical-align: middle;
+	text-align:center;
+	border-radius: 5px;
+	padding: 2px;
+}
+
+select.listBox
+{
+	width: 300px;
+	height:100px;
+}

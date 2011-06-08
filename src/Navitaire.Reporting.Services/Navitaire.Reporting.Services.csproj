@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E40FCE3D-71B9-44B6-80BB-63E2133045AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Navitaire.Reporting.Services</RootNamespace>
+    <AssemblyName>Navitaire.Reporting.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportingServices.Interfaces, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.ReportingServices.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjects\BOConfiguration.cs" />
+    <Compile Include="BusinessObjects\BOConfigurationCollection.cs" />
+    <Compile Include="BusinessObjects\BOConfiguredDataSource.cs" />
+    <Compile Include="BusinessObjects\BOConfiguredDataSourceCollection.cs" />
+    <Compile Include="BusinessObjects\BOConfiguredRole.cs" />
+    <Compile Include="BusinessObjects\BOConfiguredRoleCollection.cs" />
+    <Compile Include="BusinessObjects\BOExportMap.cs" />
+    <Compile Include="BusinessObjects\BOExportMapCollection.cs" />
+    <Compile Include="BusinessObjects\BORoleAccess.cs" />
+    <Compile Include="BusinessObjects\BORoleAccessCollection.cs" />
+    <Compile Include="BusinessObjects\BOSubscriptionReportParameter.cs" />
+    <Compile Include="BusinessObjects\BOSubscriptionReportParameterCollection.cs" />
+    <Compile Include="BusinessObjects\BOUserAccess.cs" />
+    <Compile Include="BusinessObjects\BOUserAccessCollection.cs" />
+    <Compile Include="BusinessObjects\BOUserEntity.cs" />
+    <Compile Include="BusinessObjects\BOUserEntityCollection.cs" />
+    <Compile Include="BusinessObjects\ExportMapManager.cs" />
+    <Compile Include="BusinessObjects\NParameterValue.cs" />
+    <Compile Include="BusinessObjects\NParameterValueCollection.cs" />
+    <Compile Include="Catalog\NCatalogItem.cs" />
+    <Compile Include="Catalog\NCatalogItemCollection.cs" />
+    <Compile Include="Catalog\NDatasource.cs" />
+    <Compile Include="Catalog\NDatasourceReference.cs" />
+    <Compile Include="Catalog\NDatasourceReferenceCollection.cs" />
+    <Compile Include="Catalog\NFolder.cs" />
+    <Compile Include="Catalog\NLinkedReport.cs" />
+    <Compile Include="Catalog\NReport.cs" />
+    <Compile Include="Catalog\NReportParameter.cs" />
+    <Compile Include="Catalog\NReportParameterCollection.cs" />
+    <Compile Include="Catalog\NValidValue.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataLayer\CollectionGen\BOExportMapCollectionGen.cs" />
+    <Compile Include="DataLayer\CollectionGen\BOSubscriptionReportParameterCollectionGen.cs" />
+    <Compile Include="DataLayer\CollectionGen\ConfigurationCollectionGen.cs" />
+    <Compile Include="DataLayer\CollectionGen\ConfiguredDataSourceCollectionGen.cs" />
+    <Compile Include="DataLayer\CollectionGen\ConfiguredRoleCollectionGen.cs" />
+    <Compile Include="DataLayer\CollectionGen\RoleAccessCollectionGen.cs" />
+    <Compile Include="DataLayer\CollectionGen\UserAccessCollectionGen.cs" />
+    <Compile Include="DataLayer\CollectionGen\UserEntityCollectionGen.cs" />
+    <Compile Include="DataLayer\Message\BaseMessage.cs" />
+    <Compile Include="DataLayer\Message\ConfigurationMessage.cs" />
+    <Compile Include="DataLayer\Message\ConfiguredDataSourceMessage.cs" />
+    <Compile Include="DataLayer\Message\ConfiguredRoleMessage.cs" />
+    <Compile Include="DataLayer\Message\ExportMapMessage.cs" />
+    <Compile Include="DataLayer\Message\RoleAccessMessage.cs" />
+    <Compile Include="DataLayer\Message\SubscriptionReportParameterMessage.cs" />
+    <Compile Include="DataLayer\Message\UserAccessMessage.cs" />
+    <Compile Include="DataLayer\Message\UserEntityMessage.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Help\ActionHelpMapTopic.cs" />
+    <Compile Include="Help\ActionHelpMapTopicCollection.cs" />
+    <Compile Include="Authentication\AuthenticatedUserManager.cs" />
+    <Compile Include="Catalog\CatalogInteractionManager.cs" />
+    <Compile Include="Exceptions\DiagnosisException.cs" />
+    <Compile Include="Exceptions\InvalidAuthorizationException.cs" />
+    <Compile Include="Exceptions\InvalidCatalogItemTypeException.cs" />
+    <Compile Include="Exceptions\InvalidCatalogStructureException.cs" />
+    <Compile Include="Exceptions\InvalidConfigurationException.cs" />
+    <Compile Include="Exceptions\InvalidReportParameterValueException.cs" />
+    <Compile Include="Exceptions\InvalidServiceServerConfigurationException.cs" />
+    <Compile Include="Exceptions\InvalidValueException.cs" />
+    <Compile Include="Exceptions\ItemAlreadyExistsException.cs" />
+    <Compile Include="Exceptions\ItemNotFoundException.cs" />
+    <Compile Include="Exceptions\ReportExecutionFailedException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SRS\ExecutionServiceClient.cs" />
+    <Compile Include="SRS\ReportingServiceClient.cs" />
+    <Compile Include="SRS\ReportingServiceNonHttpClient.cs" />
+    <Compile Include="SRS\ReportService2005.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Navitaire.Reporting.Security\Navitaire.Reporting.Security.csproj">
+      <Project>{E4B41C75-2E30-430C-86FD-F9378109500E}</Project>
+      <Name>Navitaire.Reporting.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Navitaire.Reporting.Tools.FileCompression\Navitaire.Reporting.Tools.FileCompression.csproj">
+      <Project>{7DB8C6C0-8466-4498-A590-157E9C3D9911}</Project>
+      <Name>Navitaire.Reporting.Tools.FileCompression</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

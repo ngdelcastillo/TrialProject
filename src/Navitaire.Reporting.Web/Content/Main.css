@@ -1,0 +1,94 @@
+﻿/*---GENERAL---*/
+body 
+{
+	background-color: #91BBFF;
+	font-family: Georgia, "New Century Schoolbook", "Nimbus Roman No9 L", serif;
+	color: #563B1D;
+}
+
+a {
+    text-decoration: None;
+    color: #3B14FF;
+}
+
+#header
+{
+	padding: 30px 30px 30px 30px
+}
+
+#header h1 {
+    font-size: 32px;
+}
+
+#clear {
+    clear: both;
+}
+
+/*---LOGIN---*/
+#Login 
+{
+	background-color: Blue transparent
+}
+
+body .dialog
+{
+	width: 400px;
+	margin: 0 auto;		
+}
+
+
+/*---LAYOUT---*/
+#banner {
+    background-color: #FFFFFF;
+    width: 100%;
+    margin: 0 auto 0 auto;
+}
+
+#banner ul li {
+    display: inline;
+    list-style-type: none;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    padding-top: 50px;    
+}
+
+#menu
+{
+	background-color: ButtonFace;
+	width: 100%;
+}
+
+#menu ul li
+{
+	display: inline;
+    list-style-type: none;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    float: left;
+}
+
+#main {
+    border: 2px solid #A9ACC6;
+    background-color: White;
+    margin: 5px auto 0px auto;
+    width: 100%;
+}
+
+#footer {
+    width: 800px;
+    margin: 5px auto 0px auto;
+}
+
+#footer p {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+/*---HOME---*/
+#content table
+{
+	width: 100%;
+	height: auto;
+}

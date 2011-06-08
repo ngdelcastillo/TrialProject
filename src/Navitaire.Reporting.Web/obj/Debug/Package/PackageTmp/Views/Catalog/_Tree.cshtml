@@ -1,0 +1,40 @@
+﻿<ul id="catalog" class="tree">
+<li class="Folder"><a href="@Url.Content("~/catalog/Content?_")">Home</a>
+<ul>    
+@foreach (var parent in Model.Catalogs)
+{    
+    <li class="@parent.ItemType"><a href="@Url.Content("~/catalog/Content?"+ @parent.Key)">@parent.Name</a>
+    @if (parent.Children.Count > 0)
+    {
+        <ul>
+        @foreach (var child1 in parent.Children)
+        {
+            <li class="@child1.ItemType"><a href="@Url.Content("~/catalog/Content?"+@child1.Key)">@child1.Name</a>
+            @if (child1.Children.Count > 0)
+            {
+                <ul>
+                @foreach (var child2 in child1.Children)
+                {
+                    <li class="@child2.ItemType"><a href="@Url.Content("~/catalog/Content?"+@child2.Key)">@child2.Name</a>
+                    @if (child2.Children.Count > 0)
+                    {
+                        <ul>
+                        @foreach (var child3 in child2.Children)
+                        {
+                            <li class="@child3.ItemType"><a href="@Url.Content("~/catalog/Content?"+@child3.Key)">@child3.Name</a></li>
+                        }
+                        </ul>
+                    }
+                    </li>
+                }
+                </ul>
+            }
+            </li>                                                               
+        }
+        </ul> 
+    }                                                                    
+    </li>    
+}
+</ul>
+</li>       
+</ul>

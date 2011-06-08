@@ -1,0 +1,43 @@
+﻿@model Navitaire.Reporting.Web.Models.SettingsModel
+@{
+    ViewBag.Title = "Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("_SettingsMenu")
+<h2>@ViewBag.Title</h2>
+<script src="@Url.Content("~/Scripts/settings.js")" type="text/javascript"></script>
+<div class="content">
+<fieldset>
+<legend>Add Roles</legend>
+@using(Html.BeginForm())
+{
+<label>Role Name</label>
+<select name="role" id="roles">
+     @foreach (string role in Model.Roles)
+     {
+          <option value="@role">@role</option>
+     }  
+     @if (Model.Roles.Count == 0)
+     {
+         ViewBag.Disabled = "disabled"; 
+     }
+</select>
+<input type="submit" name="action" id="btnAddRole" value="Add" class="button" @ViewBag.Disabled/>
+}
+@using (Html.BeginForm())
+{
+<table class="content">
+@foreach (var role in Model.ConfiguredRoles)
+{
+    <tr>
+        <td><label>@role.RoleName</label><button class="image-button" type="submit" name="action" value="@role.RoleName"><img class="delete-item"></img></button></td>
+    </tr>
+}
+</table>
+}
+</fieldset>
+
+
+
+</div>
+

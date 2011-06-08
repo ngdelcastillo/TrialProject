@@ -1,0 +1,43 @@
+﻿@model Navitaire.Reporting.Web.Models.SettingsModel
+<div class="tree" id="SettingsTree">
+<ul id="catalog" class="tree">
+<li class="Folder"><a href="@Url.Content("~/Settings/ExportMappings?_")">Home</a>
+<ul>    
+@foreach (var parent in Model.Catalog.Catalogs)
+{
+    <li class="@parent.ItemType"><a href="@Url.Content("~/Settings/ExportMappings?_"+@parent.Path)">@parent.Name</a>
+    @if (parent.Children.Count > 0)
+    {
+        <ul>
+        @foreach (var child1 in parent.Children)
+        {
+            <li class="@child1.ItemType"><a href="@Url.Content("~/Settings/ExportMappings?_"+@child1.Path)">@child1.Name</a>
+            @if (child1.Children.Count > 0)
+            {
+                <ul>
+                @foreach (var child2 in child1.Children)
+                {
+                    <li class="@child2.ItemType"><a href="@Url.Content("~/Settings/ExportMappings?_"+@child2.Path)">@child2.Name</a>
+                    @if (child2.Children.Count > 0)
+                    {
+                        <ul>
+                        @foreach (var child3 in child2.Children)
+                        {
+                            <li class="@child3.ItemType"><a href="@Url.Content("~/Settings/ExportMappings?_"+@child3.Path)">@child3.Name</a></li>
+                        }
+                        </ul>
+                    }
+                    </li>
+                }
+                </ul>
+            }
+            </li>                                                               
+        }
+        </ul> 
+    }                                                                    
+    </li>    
+}
+</ul>
+</li>       
+</ul>
+</div>

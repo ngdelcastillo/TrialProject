@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <contentPath path="D:\R&amp;D\Reporting-MVC3\src\Navitaire.Reporting.Web\obj\Debug\Package\PackageTmp" />
+  <setAcl path="D:\R&amp;D\Reporting-MVC3\src\Navitaire.Reporting.Web\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="D:\R&amp;D\Reporting-MVC3\src\Navitaire.Reporting.Web\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

@@ -1,0 +1,123 @@
+﻿@model Navitaire.Reporting.Web.Models.SettingsModel
+@{
+    ViewBag.Title = "Application";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+<h2>@ViewBag.Title</h2>
+<table>
+<tr>
+<td td valign="top">
+@Html.Partial("_SettingsMenu")
+</td>
+<td class="settings-main">
+<div class="content">
+@using (Html.BeginForm())
+{
+<input type="submit" value="Save Configuration" name="commit" class="button"/>
+<fieldset >
+<legend>Application Configuration</legend>
+<div class="settings">
+
+@foreach (var setting in Model.ApplicationConfigurations)
+{
+    <div class="parameter">
+   <label>@setting.PropertyName</label><br />
+    <input type="text" id="@setting.PropertyName" value="@setting.PropertyValue" name="@setting.PropertyName"/>
+    <div class="appinfo" id="info-@setting.PropertyName"></div>
+    <div id="@string.Format("desc-{0}", setting.PropertyName)" class="description">@setting.PropertyDescription</div>
+    </div>
+}
+</div>
+</fieldset>
+<div class="settings">
+<fieldset>
+<legend>Subscription Configuration</legend>
+@foreach (var setting in Model.SubscriptionConfigurations)
+{
+    switch (setting.PropertyName)
+    {
+        case "Navitaire.Reporting.ScheduleService.exe":
+            <div class="parameter">
+                <label>ScheduleServiceSignature</label>
+                <input type="text" id="@setting.PropertyName" value="@setting.PropertyValue" name="@setting.PropertyName"/>
+                <div class="appinfo" id="info-ScheduleServiceSignature"></div>
+                <div id="desc-ScheduleServiceSignature" class="description">@setting.PropertyDescription</div>
+            </div>
+                                                                                          break;
+        case "ServerTimeZone":
+            <div class="parameter">
+                <label>@setting.PropertyName</label>
+                    <select name="@setting.PropertyName" id="@setting.PropertyName" value="@setting.PropertyValue">
+                    @foreach (TimeZoneInfo tz in TimeZoneInfo.GetSystemTimeZones())
+                    {
+                        if (tz.StandardName == setting.PropertyValue)
+                        {
+                            <option value="@setting.PropertyValue" selected="selected">@tz.DisplayName</option>
+                        }
+                        else
+                        {
+                            <option value="@tz.StandardName">@tz.DisplayName</option>
+                        }
+                    }
+                    </select>
+                    <div class="appinfo" id="info-@setting.PropertyName"></div>
+                    <div id="@string.Format("desc-{0}", setting.PropertyName)" class="description">@setting.PropertyDescription</div>
+            </div>
+                                                                                             break;
+        case "SubscriptionLogLevel":
+            <div class="parameter">
+                <label>@setting.PropertyName</label>
+                    <select name="@setting.PropertyName" id="@setting.PropertyName" value="@setting.PropertyValue">
+                       @foreach (int logLevel in Model.SubscriptionLogLevel.Keys)
+                       {
+                           if (logLevel.ToString() == setting.PropertyValue)
+                           {
+                               <option value="@setting.PropertyValue" selected="selected">@Model.SubscriptionLogLevel[logLevel].ToString()</option>
+                           }
+                           else
+                           {
+                               <option value="@logLevel">@Model.SubscriptionLogLevel[logLevel].ToString()</option>
+                           }
+                       }
+                    </select>
+                    <div class="appinfo" id="info-@setting.PropertyName"></div>
+                    <div id="@string.Format("desc-{0}", setting.PropertyName)" class="description">@setting.PropertyDescription</div>
+           </div>
+                                                                                             break;
+        case "SubscriptionNameFormat": 
+            <div class="parameter">
+                <label>@setting.PropertyName</label>
+                    <select name="@setting.PropertyName" id="@setting.PropertyName" value="@setting.PropertyValue">
+                       @foreach (string nameFormat in Model.SubscriptionNameFormat)
+                       {
+                           if (nameFormat == setting.PropertyValue)
+                           {
+                               <option value="@setting.PropertyValue" selected="selected">@setting.PropertyValue</option>
+                           }
+                           else
+                           {
+                               <option value="@nameFormat">@nameFormat</option>
+                           }
+                       }
+                    </select>
+                    <div class="appinfo" id="info-@setting.PropertyName"></div>
+                    <div id="@string.Format("desc-{0}", setting.PropertyName)" class="description">@setting.PropertyDescription</div>
+            </div>
+                                                                                             break;
+        default:
+             <div class="parameter">
+                <label>@setting.PropertyName</label>
+                <input type="text" id="@setting.PropertyName" value="@setting.PropertyValue" name="@setting.PropertyName"/>
+                <div class="appinfo" id="info-@setting.PropertyName"></div>
+                <div id="@string.Format("desc-{0}", setting.PropertyName)" class="description">@setting.PropertyDescription</div>
+            </div>
+                                                                                         break;
+    }
+}
+</fieldset>
+</div>
+}
+</div>
+</td>
+</tr>
+</table>

@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "_SettingsMenu";
+}
+<div class="menu">
+    @Html.ActionLink("Application", "Application", "Settings")
+    @Html.ActionLink("Roles", "Roles", "Settings")
+    @Html.ActionLink("Security", "Security", "Settings")
+    @Html.ActionLink("ExportMappings", "ExportMappings", "Settings")
+</div>

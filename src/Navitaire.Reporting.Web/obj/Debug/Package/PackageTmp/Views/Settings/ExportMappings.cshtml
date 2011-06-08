@@ -1,0 +1,76 @@
+﻿@using Navitaire.Reporting.Web.Models;
+@model Navitaire.Reporting.Web.Models.SettingsModel
+@{
+    ViewBag.Title = "ExportMappings";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+@Html.Partial("_SettingsMenu")
+
+<h2>Export Mappings</h2>
+<div class="content">
+@using (Html.BeginForm())
+{
+<fieldset>
+<fieldset>
+<legend>Add Export Mapping</legend>
+<table>
+<tr>
+    <td>Report Path</td>
+    <td>
+        <input type="text" onclick="ExpandReportPath()" name="reportPath"  readonly="readonly" id="ReportPath" value="@SettingsModel.ReportPath"/>
+    </td>
+</tr>
+<tr>
+    <td></td>
+    <td>
+        <div id="ExportTree" style="display:none">
+        @Html.Partial("_Tree")
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>Procedure Name</td>
+    <td>
+        <select name="storedProc">
+        @if (Model.ReportStoredProcedures != null)
+        {
+            foreach (string storedProc in Model.ReportStoredProcedures)
+            {
+                <option value="@storedProc">@storedProc</option>
+            }
+        }
+        </select>
+    </td>
+</tr>
+<tr>
+    <td>Catalog Behavior</td>
+    <td>
+        <select name="displayOption">
+        @foreach (string displayOption in Model.ExportMapDisplayOptions)
+        {
+            <option value="@displayOption">@displayOption</option>
+        }
+        </select>
+    </td>
+</tr>
+</table>
+<input type="submit" name="action" id="AddExportMapping" value = "Add" class="button" />
+</fieldset>
+
+<table class="content">
+<th>Report Path</th>
+<th>Display Options</th>
+<th>Stored Procedure</th>
+@foreach (var mapping in Model.ExportMappings)
+{
+    <tr>
+        <td>@mapping.ReportPath</td>
+        <td>@mapping.DisplayOptions</td>
+        <td>@mapping.ProcName<button class="image-button" name="action" value="@mapping.ReportPath"><img class="delete-item" /></button></td>
+    </tr> 
+}
+</table>
+</fieldset>
+}
+</div>
+

@@ -1,0 +1,5 @@
+D:\R&D\Reporting-MVC3\bin\NavitaireReporting.Security.dll
+D:\R&D\Reporting-MVC3\bin\NavitaireReporting.Security.pdb
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Security\obj\Debug\ResolveAssemblyReference.cache
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Security\obj\Debug\NavitaireReporting.Security.dll
+D:\R&D\Reporting-MVC3\src\NavitaireReporting.Security\obj\Debug\NavitaireReporting.Security.pdb

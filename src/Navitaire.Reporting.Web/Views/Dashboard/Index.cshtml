@@ -1,0 +1,49 @@
+﻿@model Navitaire.Reporting.Web.Models.DashboardModel
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard-container">
+    <section class="dashboard-board">
+        <header name="Dashboard">
+            <h2>My Dashboard</h2>                        
+        </header>
+        <aside>
+            <nav class="dashboard-nav">
+                <ul>
+                    <li>Technical</li>
+                    <li>Operational</li>
+                    <li>Sales</li>
+                    <li>Marketing</li>
+                </ul>
+            </nav> 
+        </aside>
+        <section class="dashboard-content">
+            <div class="dashboard-panel">
+                <div class="dashboard-canvas">
+                    <div class="health-bar 1234" draggable="true">
+                        <section title="HealthBar" class="dashboard-widget">
+                            <iframe src="@Model.Iframe"></iframe>
+                        </section>
+                    </div>
+                </div>
+                <div class="dashboard-add-widgets">
+                    <div>
+                        <header class="widgets-header">
+                            <h2>Add Widgets to your Board</h2>
+                        </header>
+                        <section class="widgets-body">
+                            <span class="buttons-vertical">
+                                <span>Add a new Health Monitor</span>
+                                <span>Add a new ETL Status Monitor</span>
+                                <span>Add a new Subscription Monitor</span>
+                            </span>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+

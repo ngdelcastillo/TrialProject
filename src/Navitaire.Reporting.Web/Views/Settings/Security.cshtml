@@ -1,0 +1,63 @@
+﻿@model Navitaire.Reporting.Web.Models.SettingsModel
+@{
+    ViewBag.Title = "Security";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+    Navitaire.Reporting.Web.Models.CatalogModel model = new Navitaire.Reporting.Web.Models.CatalogModel();
+ }
+ <h2>Security</h2>
+ <table>
+ <tr>
+ <td valign="top">
+@Html.Partial("_SettingsMenu")
+</td>
+<td class="settings-tree">
+@Html.Partial("_Tree")
+</td>
+<td class="settings-main">
+    <div class="content">
+    <label id="detail">Select an item to see the details.</label>
+    @using (Html.BeginForm())
+    {
+        <table>
+        <tr>
+        <td>
+        <label>Denied</label>
+        <div>
+        @if (Model.DeniedRoleCollection != null)
+        {
+            <select id="deniedRoles" name"deniesdRoles" multiple="multiple" class="listBox">
+            @foreach (string role in Model.DeniedRoleCollection)
+            {
+                <option value="@role">@role</option> 
+            }
+            </select>
+        }
+        </div>
+        </td>
+        <td>
+            <button id="role-right" type="button">Allow&nbsp;&gt;</button><br />
+            <button id="role-left" type="button">&lt;&nbsp;Deny</button>
+        </td>
+        <td>
+        <label>Allowed</label>
+        <div>
+        @if (Model.AllowedRoleCollection != null)
+        {
+            <select id="allowedRoles" name"allowedRoles" multiple="multiple" class="listBox">
+            @foreach (string role in Model.AllowedRoleCollection)
+            {
+                <option value="@role">@role</option> 
+            }
+            </select>
+        }
+        </div>
+        </td>
+        </tr>
+        </table>
+    }
+    </div>
+</td>
+</tr>
+</table>
+
+
